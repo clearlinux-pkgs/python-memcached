@@ -4,7 +4,7 @@
 #
 Name     : python-memcached
 Version  : 1.57
-Release  : 16
+Release  : 17
 URL      : https://pypi.python.org/packages/source/p/python-memcached/python-memcached-1.57.tar.gz
 Source0  : https://pypi.python.org/packages/source/p/python-memcached/python-memcached-1.57.tar.gz
 Summary  : Pure python memcached client
