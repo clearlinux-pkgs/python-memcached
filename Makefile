@@ -1,4 +1,5 @@
 PKG_NAME := python-memcached
-URL := https://pypi.python.org/packages/source/p/python-memcached/python-memcached-1.57.tar.gz
+URL := http://pypi.debian.net/python-memcached/python-memcached-1.58.tar.gz
+ARCHIVES :=
 
 include ../common/Makefile.common
