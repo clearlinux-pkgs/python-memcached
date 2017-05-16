@@ -4,7 +4,7 @@
 #
 Name     : python-memcached
 Version  : 1.58
-Release  : 21
+Release  : 22
 URL      : http://pypi.debian.net/python-memcached/python-memcached-1.58.tar.gz
 Source0  : http://pypi.debian.net/python-memcached/python-memcached-1.58.tar.gz
 Summary  : A Python memcached client library.
