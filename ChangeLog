@@ -1,3 +1,25 @@
+Fri, 15 Dec 2018 09:02:05 -0700  Sean Reifschneider  <jafo00@gmail.com>
+
+   *  Added testing for Python 3.5 and 3.6 (PR from Tim Graham) #110, #131
+
+   *  Fixed typos in docstrings (PR from Romuald Brunet, reviewed by Tim
+      Graham) #105
+
+   *  Removing Python 2.6, 3.2, and 3.3 testing (PR from Tim Graham) #115, #116
+
+   *  Removing unnecessary parens in return statements (PR from Tim Graham)
+      #113
+
+   *  Remove unused _has_unicode/_str_cls vars (PR from Tim Graham) #111
+
+   *  Add flake8 testing and cleanups (PR from Tim Graham, cleanups from Sean
+      Reifschneider) #112
+
+   * Fixed storing non-ASCII values on Python 2 and binary values on Python 3
+     (PR from Nicolas Noé) #135
+
+   * Fixed touch(..., time=0) command (PR from Nicolas Noé) #137
+
 Fri, 27 May 2016 13:44:55 -0600  Sean Reifschneider  <jafo@tummy.com>
 
    *  1.58 release.
