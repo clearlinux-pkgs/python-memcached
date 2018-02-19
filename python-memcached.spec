@@ -4,20 +4,22 @@
 #
 Name     : python-memcached
 Version  : 1.59
-Release  : 26
+Release  : 27
 URL      : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Source0  : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Summary  : Pure python memcached client
 Group    : Development/Tools
 License  : Python-2.0
-Requires: python-memcached-legacypython
 Requires: python-memcached-python3
 Requires: python-memcached-python
+Requires: six
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : six
+BuildRequires : six-python
 
 %description
 [![Build
@@ -35,7 +37,6 @@ legacypython components for the python-memcached package.
 %package python
 Summary: python components for the python-memcached package.
 Group: Default
-Requires: python-memcached-legacypython
 Requires: python-memcached-python3
 
 %description python
@@ -59,7 +60,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1513370351
+export SOURCE_DATE_EPOCH=1519050709
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -69,7 +70,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python setup.py test
 %install
-export SOURCE_DATE_EPOCH=1513370351
+export SOURCE_DATE_EPOCH=1519050709
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
