@@ -4,7 +4,7 @@
 #
 Name     : python-memcached
 Version  : 1.59
-Release  : 33
+Release  : 34
 URL      : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Source0  : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Summary  : Pure python memcached client
@@ -15,11 +15,12 @@ Requires: python-memcached-python
 Requires: six
 BuildRequires : pbr
 BuildRequires : pip
-
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 BuildRequires : six
-BuildRequires : six-python
 
 %description
 [![Build
@@ -60,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519050709
+export SOURCE_DATE_EPOCH=1530376661
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -70,7 +71,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python setup.py test
 %install
-export SOURCE_DATE_EPOCH=1519050709
+export SOURCE_DATE_EPOCH=1530376661
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
