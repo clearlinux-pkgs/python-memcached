@@ -4,41 +4,27 @@
 #
 Name     : python-memcached
 Version  : 1.59
-Release  : 43
+Release  : 44
 URL      : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Source0  : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
-Summary  : Pure python memcached client
+Summary  : Python interface to memcached
 Group    : Development/Tools
 License  : Python-2.0
-Requires: python-memcached-python3
-Requires: python-memcached-python
+Requires: python-memcached-python = %{version}-%{release}
+Requires: python-memcached-python3 = %{version}-%{release}
 Requires: six
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python-core
-BuildRequires : python3-core
-BuildRequires : python3-dev
-BuildRequires : setuptools
-BuildRequires : setuptools-legacypython
+BuildRequires : buildreq-distutils3
 BuildRequires : six
+BuildRequires : six-python
 
 %description
 [![Build
 Status](https://travis-ci.org/linsomniac/python-memcached.svg)](https://travis-ci.org/linsomniac/python-memcached)
 
-%package legacypython
-Summary: legacypython components for the python-memcached package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the python-memcached package.
-
-
 %package python
 Summary: python components for the python-memcached package.
 Group: Default
-Requires: python-memcached-python3
+Requires: python-memcached-python3 = %{version}-%{release}
 
 %description python
 python components for the python-memcached package.
@@ -61,9 +47,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530376661
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554326873
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %check
 export http_proxy=http://127.0.0.1:9/
@@ -71,20 +57,15 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python setup.py test
 %install
-export SOURCE_DATE_EPOCH=1530376661
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
