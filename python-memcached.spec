@@ -4,7 +4,7 @@
 #
 Name     : python-memcached
 Version  : 1.59
-Release  : 46
+Release  : 47
 URL      : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Source0  : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Summary  : Python interface to memcached
