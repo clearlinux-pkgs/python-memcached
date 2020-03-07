@@ -4,10 +4,10 @@
 #
 Name     : python-memcached
 Version  : 1.59
-Release  : 49
+Release  : 50
 URL      : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
 Source0  : http://pypi.debian.net/python-memcached/python-memcached-1.59.tar.gz
-Summary  : Python interface to memcached
+Summary  : Pure python memcached client
 Group    : Development/Tools
 License  : Python-2.0
 Requires: python-memcached-python = %{version}-%{release}
@@ -20,36 +20,6 @@ BuildRequires : six-python
 %description
 [![Build
 Status](https://travis-ci.org/linsomniac/python-memcached.svg)](https://travis-ci.org/linsomniac/python-memcached)
-
-## Overview
-
-This software is a 100% Python interface to the memcached memory cache
-daemon.  It is the client side software which allows storing values
-in one or more, possibly remote, memcached servers.  Search google for
-memcached for more information.
-
-This package was originally written by Evan Martin of Danga.  Please do
-not contact Evan about maintenance.  Sean Reifschneider of tummy.com,
-ltd. has taken over maintenance of it.
-
-Please report issues and submit code changes to the github repository at:
-
-   https://github.com/linsomniac/python-memcached
-
-For changes prior to 2013-03-26, see the old Launchpad repository at:
-
-   Historic issues: https://launchpad.net/python-memcached
-
-## Testing
-
-Test patches locally and easily by running tox:
-
-    pip install tox
-    tox -e py27
-
-Test for style by running tox:
-
-    tox -e pep8
 
 %package python
 Summary: python components for the python-memcached package.
@@ -64,7 +34,8 @@ python components for the python-memcached package.
 Summary: python3 components for the python-memcached package.
 Group: Default
 Requires: python3-core
-Provides: pypi(python-memcached)
+Provides: pypi(python_memcached)
+Requires: pypi(six)
 
 %description python3
 python3 components for the python-memcached package.
@@ -79,8 +50,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583213138
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583541457
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "

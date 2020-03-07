@@ -1,5 +1,4 @@
 # This file contains recursive sources that require this package
 Django
 keystone
-oslo.cache
 pysaml2
